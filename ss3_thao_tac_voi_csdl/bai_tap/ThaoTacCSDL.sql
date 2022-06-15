@@ -27,10 +27,12 @@ value (1,1,3),
 
 -- Hiển thị các thông tin  gồm oID, oDate, oPrice của tất cả các hóa đơn trong bảng Order
 select order_id, customer_id, order_date from `order`;
+
 -- Hiển thị danh sách các khách hàng đã mua hàng, và danh sách sản phẩm được mua bởi các khách
 select customer.customer_name, product.product_name from customer
 inner join `order` on `order`.customer_id = customer.customer_id
 inner join orderdetail on `order`.order_id = orderdetail.order_id
 inner join product on orderdetail.product_id = product.product_id;
 
+-- Hiển thị tên những khách hàng không mua bất kỳ một sản phẩm nào
 select customer.customer_name from customer where customer.customer_id not in (select customer_id from `order`);
