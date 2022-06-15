@@ -1,4 +1,4 @@
-USE QuanLySinhVien;
+USE quan_ly_sinh_vien;
 -- Hiển thị danh sách tất cả các học viên
 SELECT * FROM Student;
 -- Hiển thị danh sách các học viên đang theo học.

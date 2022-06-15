@@ -1,4 +1,4 @@
-use quanlybanhang;
+use quan_ly_ban_hang;
 insert into customer(customer_name,customer_age)
 value ('Minh Quan',10), 
 ('Ngoc Oanh', 20),

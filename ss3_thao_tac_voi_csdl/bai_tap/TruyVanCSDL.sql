@@ -1,4 +1,4 @@
-USE quanlysinhvien;
+USE quan_ly_sinh_vien;
 -- Hiển thị tất cả các sinh viên có tên bắt đầu bảng ký tự ‘h’
 select * from student where student_name like 'h%';
 -- Hiển thị các thông tin lớp học có thời gian bắt đầu vào tháng 12.

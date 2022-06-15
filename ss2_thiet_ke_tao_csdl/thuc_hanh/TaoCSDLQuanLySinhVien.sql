@@ -1,5 +1,5 @@
-CREATE DATABASE quanlysinhvien;
-USE quanlysinhvien;
+CREATE DATABASE quan_ly_sinh_vien;
+USE quan_ly_sinh_vien;
 CREATE TABLE class (
     class_id   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     class_name VARCHAR(60) NOT NULL,
