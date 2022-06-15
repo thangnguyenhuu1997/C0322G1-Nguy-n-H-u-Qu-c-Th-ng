@@ -36,3 +36,9 @@ inner join product on orderdetail.product_id = product.product_id;
 
 -- Hiển thị tên những khách hàng không mua bất kỳ một sản phẩm nào
 select customer.customer_name from customer where customer.customer_id not in (select customer_id from `order`);
+
+-- Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn. Giá bán của từng loại được tính = odQTY*pPrice)
+select `order`.order_id, `order`.order_date,orderdetail.odQTY,product.product_prince ,sum(orderdetail.odQTY * product.product_prince) as gia_ban from `order`
+join orderdetail on `order`.order_id = orderdetail.order_id
+join product on product.product_id = orderdetail.product_id
+group by `order`.order_id;
