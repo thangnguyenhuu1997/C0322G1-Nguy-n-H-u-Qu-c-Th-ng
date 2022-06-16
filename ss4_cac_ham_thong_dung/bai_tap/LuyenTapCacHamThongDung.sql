@@ -1,8 +1,7 @@
 USE quan_ly_sinh_vien;
 -- Hiển thị tất cả các thông tin môn học (bảng subject) có credit lớn nhất.
-select * 
-from subject
-where credit >= all(select credit from subject);
+select * from subject
+having credit >= all(select credit from subject);
 
 -- Hiển thị các thông tin môn học có điểm thi lớn nhất.
 select mark.mark_id, mark.mark, subject.subject_name, subject.credit
@@ -13,4 +12,4 @@ having mark.mark >= all(select max(mark) from mark);
 select *, avg(mark.mark) as 'diem_trung_binh'
 from student join mark on student.student_id = mark.student_id
 group by student.student_id
-order by avg(mark.mark) desc;
+order by 'diem_trung_binh' desc;
