@@ -154,10 +154,26 @@ group by nhan_vien.ma_nhan_vien
 having count(hop_dong.ma_hop_dong) <=3;
 
 -- yêu cầu 16
-SET FOREIGN_KEY_CHECKS = 0;
+SET SQL_SAFE_UPDATES = 0;
 delete from nhan_vien where ma_nhan_vien in
-(select nhan_vien.ma_nhan_vien
+ ( select * from 
+ (select nhan_vien.ma_nhan_vien
 from nhan_vien 
 left join hop_dong on nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien
 where nhan_vien.ma_nhan_vien not in (select hop_dong.ma_nhan_vien from hop_dong where (year(hop_dong.ngay_lam_hop_dong) between 2019 and 2021))
-group by nhan_vien.ma_nhan_vien);
+group by nhan_vien.ma_nhan_vien) abc);
+SET SQL_SAFE_UPDATES = 1;
+
+-- yêu cầu 17
+update khach_hang
+set khach_hang.ma_loai_khach = 1
+where khach_hang.ma_loai_khach = 2
+and khach_hang.ma_khach_hang in (select hop_dong.ma_khach_hang from hop_dong
+join dich_vu on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+join hop_dong_chi_tiet on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+join dich_vu_di_kem on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+group by hop_dong.ma_khach_hang
+having sum(dich_vu.chi_phi_thue + hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia) > 10000000);
+
+-- yêu cầu 18
+select khach_hang.ma_khach_hang 
