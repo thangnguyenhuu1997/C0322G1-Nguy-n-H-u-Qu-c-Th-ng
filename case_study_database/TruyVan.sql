@@ -110,10 +110,10 @@ dich_vu.ma_dich_vu, dich_vu.ten_dich_vu,
 sum(ifnull(hop_dong_chi_tiet.so_luong,0)) as 'so_luong_dich_vu_di_kem', 
 hop_dong.tien_dat_coc 
 from hop_dong
-left join nhan_vien on hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
-left join khach_hang on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
-left join dich_vu on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
-left join hop_dong_chi_tiet on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+join nhan_vien on hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
+join khach_hang on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
+join dich_vu on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+join hop_dong_chi_tiet on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
 where dich_vu.ma_dich_vu in (select hop_dong.ma_dich_vu from hop_dong where (month(hop_dong.ngay_lam_hop_dong) between 10 and 12) and (year(hop_dong.ngay_lam_hop_dong) = 2020))
 and dich_vu.ma_dich_vu not in (select hop_dong.ma_dich_vu from hop_dong where (month(hop_dong.ngay_lam_hop_dong) between 1 and 6) and (year(hop_dong.ngay_lam_hop_dong) = 2021))
 group by hop_dong.ma_hop_dong;
@@ -132,7 +132,7 @@ loai_dich_vu.ten_loai_dich_vu,
 dich_vu_di_kem.ten_dich_vu_di_kem,
 count(dich_vu_di_kem.ma_dich_vu_di_kem) as so_lan_su_dung 
 from hop_dong
-join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu 
 join loai_dich_vu on loai_dich_vu.ma_loai_dich_vu = dich_vu.ma_loai_dich_vu
 join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
 join dich_vu_di_kem on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
@@ -176,4 +176,30 @@ group by hop_dong.ma_khach_hang
 having sum(dich_vu.chi_phi_thue + hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia) > 10000000);
 
 -- yêu cầu 18
-select khach_hang.ma_khach_hang 
+select khach_hang.ma_khach_hang, khach_hang.ho_ten
+from khach_hang 
+left join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+where khach_hang.ma_khach_hang in (select hop_dong.ma_khach_hang from hop_dong where (year(hop_dong.ngay_lam_hop_dong) < 2021))
+group by khach_hang.ma_khach_hang;
+
+-- yêu cầu 19
+create view dich_vu_cap_nhat as
+select dich_vu_di_kem.ma_dich_vu_di_kem,dich_vu_di_kem.ten_dich_vu_di_kem
+from dich_vu_di_kem
+join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+where hop_dong_chi_tiet.so_luong > 10
+group by dich_vu_di_kem.ma_dich_vu_di_kem;
+
+set sql_safe_updates = 0;
+update dich_vu_di_kem
+set dich_vu_di_kem.gia = dich_vu_di_kem.gia * 2
+where dich_vu_di_kem.ma_dich_vu_di_kem in (select * from dich_vu_cap_nhat);
+set sql_safe_updates = 1;
+
+
+-- yêu cầu 20
+select nhan_vien.ma_nhan_vien, nhan_vien.ho_ten, nhan_vien.email, nhan_vien.so_dien_thoai, nhan_vien.ngay_sinh, nhan_vien.dia_chi
+from nhan_vien
+union
+select khach_hang.ma_khach_hang, khach_hang.ho_ten, khach_hang.email, khach_hang.so_dien_thoai, khach_hang.ngay_sinh, khach_hang.dia_chi
+from khach_hang;
