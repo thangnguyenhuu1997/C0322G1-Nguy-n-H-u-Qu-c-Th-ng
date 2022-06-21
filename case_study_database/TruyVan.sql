@@ -84,6 +84,7 @@ select khach_hang.ho_ten from khach_hang;
  
  select * from hop_dong where month(ngay_lam_hop_dong) in(select month(ngay_lam_hop_dong) as t from hop_dong group by t)
  group by month(ngay_lam_hop_dong);
+ 
 -- yêu cầu 10
 select hop_dong.ma_hop_dong,
 hop_dong.ngay_lam_hop_dong,
@@ -185,6 +186,18 @@ left join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
 where khach_hang.ma_khach_hang in (select hop_dong.ma_khach_hang from hop_dong where (year(hop_dong.ngay_lam_hop_dong) < 2021))
 group by khach_hang.ma_khach_hang) as tb);
 set sql_safe_updates = 1;
+
+create view khach as 
+select khach_hang.ma_khach_hang
+from khach_hang 
+left join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+where khach_hang.ma_khach_hang in (select hop_dong.ma_khach_hang from hop_dong where (year(hop_dong.ngay_lam_hop_dong) < 2021))
+group by khach_hang.ma_khach_hang;
+
+set sql_safe_updates = 0;
+delete from khach_hang where khach_hang.ma_khach_hang in (select * from khach);
+ set sql_safe_updates = 1;
+
 
 -- yêu cầu 19
 create view dich_vu_cap_nhat as
