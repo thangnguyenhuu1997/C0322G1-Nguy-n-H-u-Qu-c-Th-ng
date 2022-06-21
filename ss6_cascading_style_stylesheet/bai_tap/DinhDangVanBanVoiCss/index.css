@@ -1,0 +1,19 @@
+h1 {
+    margin-bottom: 5px;
+    font-size: 40px;
+}
+
+.line-1 {
+    height: 1px;
+    background: black;
+}
+
+.description {
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+p {
+    font-family: Arial;
+    text-indent: 50px;
+}

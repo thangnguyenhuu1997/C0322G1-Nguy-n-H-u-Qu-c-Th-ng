@@ -101,19 +101,19 @@ create table hop_dong(
     ngay_ket_thuc datetime not null,
     tien_dat_coc double not null,
 	ma_nhan_vien int not null,
-    ma_khach_hang int not null,
+    ma_khach_hang int,
     ma_dich_vu int not null,
     primary key(ma_hop_dong),
     foreign key(ma_nhan_vien) references nhan_vien(ma_nhan_vien),
-    foreign key(ma_khach_hang) references khach_hang(ma_khach_hang),
+    foreign key(ma_khach_hang) references khach_hang(ma_khach_hang) on delete set null,
     foreign key(ma_dich_vu) references dich_vu(ma_dich_vu)
 );
 
 create table hop_dong_chi_tiet(
 	ma_hop_dong_chi_tiet int auto_increment,
-    so_luong int not null,
-    ma_hop_dong int not null,
-    ma_dich_vu_di_kem int not null,
+    so_luong int ,
+    ma_hop_dong int,
+    ma_dich_vu_di_kem int,
     primary key(ma_hop_dong_chi_tiet),
     foreign key(ma_hop_dong) references hop_dong(ma_hop_dong),
     foreign key(ma_dich_vu_di_kem) references dich_vu_di_kem(ma_dich_vu_di_kem)

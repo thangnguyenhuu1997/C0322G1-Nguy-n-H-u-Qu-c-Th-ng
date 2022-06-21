@@ -17,6 +17,7 @@ join loai_khach on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach
 where loai_khach.ten_loai_khach = 'Diamond'
 group by khach_hang.ma_khach_hang
 order by so_lan_dat_phong;
+
 -- yêu cầu 5
 select khach_hang.ma_khach_hang, 
 khach_hang.ho_ten, 
@@ -25,14 +26,14 @@ hop_dong.ma_hop_dong,
 dich_vu.ten_dich_vu, 
 hop_dong.ngay_lam_hop_dong, 
 hop_dong.ngay_ket_thuc,
-sum(dich_vu.chi_phi_thue + hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia) as 'tong_tien' 
-from loai_khach left join khach_hang on loai_khach.ma_loai_khach = khach_hang.ma_loai_khach
+sum(dich_vu.chi_phi_thue + ifnull(hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia, 0)) as 'tong_tien' 
+from loai_khach join khach_hang on loai_khach.ma_loai_khach = khach_hang.ma_loai_khach
 left join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
 left join hop_dong_chi_tiet on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
 left join dich_vu_di_kem on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
 left join dich_vu on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
 left join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
-group by hop_dong.ma_hop_dong
+group by khach_hang.ma_khach_hang
 order by khach_hang.ma_khach_hang;
 
 -- yêu cầu 6
@@ -176,11 +177,14 @@ group by hop_dong.ma_khach_hang
 having sum(dich_vu.chi_phi_thue + hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia) > 10000000);
 
 -- yêu cầu 18
-select khach_hang.ma_khach_hang, khach_hang.ho_ten
+set sql_safe_updates = 0;
+delete from khach_hang where ma_khach_hang in( select * from(
+select khach_hang.ma_khach_hang
 from khach_hang 
 left join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
 where khach_hang.ma_khach_hang in (select hop_dong.ma_khach_hang from hop_dong where (year(hop_dong.ngay_lam_hop_dong) < 2021))
-group by khach_hang.ma_khach_hang;
+group by khach_hang.ma_khach_hang) as tb);
+set sql_safe_updates = 1;
 
 -- yêu cầu 19
 create view dich_vu_cap_nhat as
@@ -203,3 +207,8 @@ from nhan_vien
 union
 select khach_hang.ma_khach_hang, khach_hang.ho_ten, khach_hang.email, khach_hang.so_dien_thoai, khach_hang.ngay_sinh, khach_hang.dia_chi
 from khach_hang;
+-- hiển thị ra tất cả các khách hàng chưa từng làm hợp đồng
+select khach_hang.ma_khach_hang,
+khach_hang.ho_ten,hop_dong.ma_khach_hang from khach_hang
+left join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+where hop_dong.ma_khach_hang is null;
