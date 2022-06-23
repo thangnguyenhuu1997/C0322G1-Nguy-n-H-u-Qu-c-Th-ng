@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .col-1 {width: 8.33%;}
+        .col-2 {width: 16.66%;}
+        .col-3 {width: 25%;}
+        .col-4 {width: 33.33%;}
+        .col-5 {width: 41.66%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33%;}
+        .col-8 {width: 66.66%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33%;}
+        .col-11 {width: 91.66%;}
+        .col-12 {width: 100%;}
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        .row::after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+        .logo {
+            width: 60px;
+            height: 60px;
+        }
+        .row1 {
+            background-color: lightgray;
+        }
+        table {
+            width: 100%;
+            text-align: center;
+        }
+        .menu {
+            background-color: lightgray;
+            margin-top: 10px;
+            width: 100%;
+            height: 50px;
+        }
+        .footer{
+            text-align: center;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="col-12 row1">
+        <img class="logo" src="logo.jpg">
+    </div>
+</div>
+
+<div class="row menu">
+    <div class="col-12">
+        <div class="col-2"></div>
+        <div class="col-7">
+            <table>
+                <tr>
+                    <td><a href="#" style="text-decoration: none; color: black">Phim hoạt hình</a></td>
+                    <td><a href="#" style="text-decoration: none; color: black">Phim hoạt hình yêu thích</a></td>
+                    <td><a href="#" style="text-decoration: none; color: black">Nhân vật hoạt hình</a></td>
+                    <td><a href="#" style="text-decoration: none; color: black">Góp ý</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="col-4">
+            <iframe width="400" height="200" src="https://www.youtube.com/embed/xQli7lcgQrM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="400" height="200" src="https://www.youtube.com/embed/DCiANTAeMeg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="400" height="200" src="https://www.youtube.com/embed/Gofz2KRGZOI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+
+        <div class="col-8">
+            <div class="col-12">
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/pVWnwQFRX3o" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p>
+                    Trương Nam và Phùng Tập giao tranh với quân Ngô, cuối cùng đẩy lui được Phan Chương và Hàn Đương để đưa Lưu Bị ra ngoài. Phùng Tập cùng quân Ngô ác chiến để Lưu Bị có thời gian chạy xa, cuối cùng quân chết gần hết, bị Từ Thịnh giết tại trận.
+
+                    Trương Nam cùng phó tướng Phó Đồng và Trình Kỳ hộ giá Lưu Bị chạy ra, bị lạc nhau. Trương Nam và Lưu Bị chạy về tới núi Mã Yên. Từ Thịnh, Chu Nhiên và Tống Khiêm truy kích lại gần. Trương Nam để các tướng sĩ đưa Lưu Bị chạy trước, còn mình ở lại đánh chặn và cuối cùng cũng bị tử trận.
+
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 footer">
+        <p>Tài trợ bởi hoathinh.net</p>
+    </div>
+</div>
+</body>
+</html>

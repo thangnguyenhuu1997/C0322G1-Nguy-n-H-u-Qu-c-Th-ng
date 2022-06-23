@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .col-1 {width: 8.33%;}
+        .col-2 {width: 16.66%;}
+        .col-3 {width: 25%;}
+        .col-4 {width: 33.33%;}
+        .col-5 {width: 41.66%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33%;}
+        .col-8 {width: 66.66%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33%;}
+        .col-11 {width: 91.66%;}
+        .col-12 {width: 100%;}
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        .row::after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+        img {
+            width: 50px;
+            height: 30px;
+        }
+        .menu {
+            height: 50px;
+            word-spacing: 15px;
+            background-color: black;
+            color: whitesmoke;
+            font-size: 20px;
+        }
+        .login {
+            width: 50px;
+            height: 30px;
+        }
+        .left-content {
+            text-align: center;
+            background-color: lightgray;
+            height: 500px;
+        }
+        .content {
+            background-color: white;
+            height: 500px;
+        }
+        .right-content {
+            text-align: center;
+            background-color: lightgray;
+            height: 500px;
+        }
+        .border {
+            border: solid 1px ;
+            padding: 40px 10px;
+            margin: 10px 100px;
+        }
+        .footer {
+            text-align: center;
+            background-color: darkslategrey;
+            color: whitesmoke;
+            height: 50px;
+            padding: 10px 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="col-10 menu">
+       <a href="#" style="text-decoration: none; color: white">Logo</a>
+       <a href="#" style="text-decoration: none; color: white">Home</a>
+       <a href="#" style="text-decoration: none; color: white">About</a>
+       <a href="#" style="text-decoration: none; color: white">Projects</a>
+       <a href="#" style="text-decoration: none; color: white">Contact</a>
+    </div>
+    <div class="col-2 menu">
+        <img class= "login" src="login.jpg">
+        <a href="#" style="text-decoration: none; color: white">Login</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2 left-content">
+        <div class="col-12">
+            <a href="#" style="text-decoration: none; color: blue">Link</a>
+        </div>
+        <div class="col-12">
+            <a href="#" style="text-decoration: none; color: blue">Link</a>
+        </div><div class="col-12">
+        <a href="#" style="text-decoration: none; color: blue">Link</a>
+    </div>
+    </div>
+    <div class="col-6 content">
+        <h1>Welcome</h1>
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do elusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div>
+        <h2>Test</h2>
+        <span>Lorem ipsum...</span>
+    </div>
+    <div class="col-4 right-content">
+        <p class="border">ADS</p>
+        <p class="border">ADS</p>
+    </div>
+</div>
+<div class="row footer">
+    <div class="col-12 footer">
+        <span>Footer Text</span>
+    </div>
+</div>
+</body>
+</html>
