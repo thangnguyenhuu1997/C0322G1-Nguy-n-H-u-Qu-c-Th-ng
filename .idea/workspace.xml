@@ -3,12 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="fee8908a-0c1a-4b5e-bd00-ff7601018cff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ss8_bootstrap/bai_tap/LandingPage/LandingPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss8_bootstrap/bai_tap/LandingPage/LandingPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -20,6 +26,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
@@ -34,6 +41,8 @@
       <option name="presentableId" value="Default" />
       <updated>1656162152807</updated>
       <workItem from="1656162154131" duration="986000" />
+      <workItem from="1656229896755" duration="679000" />
+      <workItem from="1656248427408" duration="1652000" />
     </task>
     <servers />
   </component>
