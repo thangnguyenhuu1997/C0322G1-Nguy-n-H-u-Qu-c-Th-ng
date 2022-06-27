@@ -11,8 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Mô tả: ${description}</h1>
-<h1>Giá: ${price}</h1>
+<h1>Tên sản phẩm: ${description}</h1>
+<h1>Giá gốc: ${price}</h1>
 <h1>Tỷ lệ chiết khấu: ${discount_percent}</h1>
 <h1>Lượng chiết khấu: ${discount_amonunt}</h1>
 <h1>Giá sau chiết khấu: ${total}</h1>
