@@ -16,16 +16,16 @@ public class DiscountCalculatorServlet extends HttpServlet {
         double discount_amonunt = price * discount_percent * 0.01;
         double total = price - discount_amonunt;
 
-        request.setAttribute("description",description);
+        request.setAttribute("description","Tên sản phẩm: " + description);
         request.setAttribute("price",price);
         request.setAttribute("discount_percent",discount_percent);
         request.setAttribute("discount_amonunt",discount_amonunt);
         request.setAttribute("total",total);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("results.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(request,response);
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
 }
