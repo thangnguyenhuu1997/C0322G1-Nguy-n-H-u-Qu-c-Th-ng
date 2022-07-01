@@ -141,7 +141,7 @@ public class UserServlet extends HttpServlet {
         userService.deleteUser(id);
 
         List<User> listUser = userService.selectAllUser();
-        request.setAttribute("listUser", listUser);
+        request.setAttribute("userList", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
         dispatcher.forward(request, response);
     }
