@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3c7ea50-3a0f-47b3-ae25-b992de57bddf" name="Default Changelist" comment="" />
+    <list default="true" id="e3c7ea50-3a0f-47b3-ae25-b992de57bddf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/furama/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/furama/.idea/gradle.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +23,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/furama" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -34,6 +36,7 @@
       <option name="presentableId" value="Default" />
       <updated>1656668981581</updated>
       <workItem from="1656668982848" duration="77000" />
+      <workItem from="1656897364866" duration="17000" />
     </task>
     <servers />
   </component>
@@ -41,10 +44,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1656669057104">
+    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1656897380789">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1656669057104" />
+    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1656897380789" />
     <state x="209" y="19" key="new project wizard" timestamp="1656669058784">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
