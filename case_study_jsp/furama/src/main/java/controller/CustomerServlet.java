@@ -67,6 +67,8 @@ public class CustomerServlet extends HttpServlet {
     private void showCustomerList(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customerList = customerService.selectAllCustomer();
         request.setAttribute("customerList", customerList);
+        List<CustomerType> customerTypeList = customerTypeService.selectAll();
+        request.setAttribute("customerTypeList", customerTypeList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/customer_list.jsp");
         try {
             dispatcher.forward(request, response);
