@@ -31,7 +31,7 @@
                 <input type="text" name="customer_name" class="form-control" value="${customer.customer_name}"
                        id="exampleFormControlInput2"
                        placeholder="Nguyen Van A" required>
-                <p style="color: red">${error.get("customer_name")}</p>
+<%--                <p style="color: red">${error.get("customer_name")}</p>--%>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput3">Ngày sinh:</label>
@@ -50,21 +50,21 @@
                 <input type="text" name="customer_id_card" class="form-control" value="${customer.customer_id_card}"
                        id="exampleFormControlInput4"
                        placeholder="XXXXXXXX or XXXXXXXXXX" required>
-                <p style="color: red">${error.get("customer_id_card")}</p>
+<%--                <p style="color: red">${error.get("customer_id_card")}</p>--%>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput5">Số điện thoại</label>
                 <input type="text" name="customer_phone" class="form-control" value="${customer.customer_phone}"
                        id="exampleFormControlInput5"
                        placeholder="(84)90xxxxxxx or (84)91xxxxxxx" required>
-                <p style="color: red">${error.get("customer_phone")}</p>
+<%--                <p style="color: red">${error.get("customer_phone")}</p>--%>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput6">Email:</label>
                 <input type="text" name="customer_email" class="form-control" value="${customer.customer_email}"
                        id="exampleFormControlInput6"
                        placeholder="abcxyz@gmail.com">
-                <p style="color: #ff0000">${error.get("customer_email")}</p>
+<%--                <p style="color: #ff0000">${error.get("customer_email")}</p>--%>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput7">Địa chỉ:</label>

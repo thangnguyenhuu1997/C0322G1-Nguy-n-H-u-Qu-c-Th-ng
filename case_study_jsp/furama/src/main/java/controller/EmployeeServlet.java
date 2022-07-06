@@ -21,6 +21,7 @@ public class EmployeeServlet extends HttpServlet {
     private IEducationDegreeService educationDegreeService = new EducationDegreeService();
     private IPositionService positionService = new PositionService();
     private IUserService userService = new UserService();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null) {
@@ -85,6 +86,7 @@ public class EmployeeServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
     private void showFormCreate(HttpServletRequest request, HttpServletResponse response) {
         List<Division> divisionList = divisionService.selectAllDivision();
         request.setAttribute("divisionList", divisionList);
@@ -105,6 +107,25 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     private void showFormUpdate(HttpServletRequest request, HttpServletResponse response) {
+        int employee_id = Integer.parseInt(request.getParameter("employee_id"));
+        Employee employee = employeeService.selectEmployee(employee_id);
+        List<Division> divisionList = divisionService.selectAllDivision();
+        request.setAttribute("divisionList", divisionList);
+        List<EducationDegree> educationDegreeList = educationDegreeService.selectAllEducationDegree();
+        request.setAttribute("educationDegreeList", educationDegreeList);
+        List<Position> positionList = positionService.selectAllPosition();
+        request.setAttribute("positionList", positionList);
+        List<User> userList = userService.selectAllUser();
+        request.setAttribute("userList", userList);
+        request.setAttribute("employee", employee);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/employee/edit.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void save(HttpServletRequest request, HttpServletResponse response) {
@@ -142,11 +163,68 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("idEmployeeToDelete"));
+        try {
+            employeeService.deleteEmployee(id);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        List<Employee> employeeList = employeeService.selectAllEmployee();
+        request.setAttribute("employeeList", employeeList);
+        // goi lai phuong
+        List<Division> divisionList = divisionService.selectAllDivision();
+        request.setAttribute("divisionList", divisionList);
+        List<EducationDegree> educationDegreeList = educationDegreeService.selectAllEducationDegree();
+        request.setAttribute("educationDegreeList", educationDegreeList);
+        List<Position> positionList = positionService.selectAllPosition();
+        request.setAttribute("positionList", positionList);
+        List<User> userList = userService.selectAllUser();
+        request.setAttribute("userList", userList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/employee/employee_list.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void search(HttpServletRequest request, HttpServletResponse response) {
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) {
+        int employee_id = Integer.parseInt(request.getParameter("employee_id"));
+        String employee_name = request.getParameter("employee_name");
+        String employee_birthday = request.getParameter("employee_birthday");
+        String employee_id_card = request.getParameter("employee_id_card");
+        double employee_salary = Double.parseDouble(request.getParameter("employee_salary"));
+        String employee_phone = request.getParameter("employee_phone");
+        String employee_email = request.getParameter("employee_email");
+        String employee_address = request.getParameter("employee_address");
+        int position_id = Integer.parseInt(request.getParameter("position_id"));
+        int education_degree_id = Integer.parseInt(request.getParameter("education_degree_id"));
+        int division_id = Integer.parseInt(request.getParameter("division_id"));
+        String username = request.getParameter("username");
+        Employee employee = new Employee(employee_id,
+                employee_name,
+                employee_birthday,
+                employee_id_card,
+                employee_salary,
+                employee_phone,
+                employee_email,
+                employee_address,
+                position_id,
+                education_degree_id,
+                division_id,
+                username);
+        try {
+            employeeService.updateEmployee(employee);
+            response.sendRedirect("/employee");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
