@@ -190,12 +190,11 @@ public class CustomerServlet extends HttpServlet {
                 customer_address);
         customerService.updateCustomer(customer);
         List<Customer> customerList = customerService.selectAllCustomer();
-        request.setAttribute("customerList", customerList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/customer_list.jsp");
+//        request.setAttribute("customerList", customerList);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/customer_list.jsp");
         try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
+//            dispatcher.forward(request, response);
+            response.sendRedirect("/customers");
         } catch (IOException e) {
             e.printStackTrace();
         }

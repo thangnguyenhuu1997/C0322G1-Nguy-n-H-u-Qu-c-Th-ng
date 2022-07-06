@@ -24,7 +24,14 @@
                 <label for="exampleFormControlSelect1">Chọn loại khách</label>
                 <select class="form-control" name="customer_type_id" id="exampleFormControlSelect1">
                     <c:forEach items="${typeList}" var="type">
-                        <option  value="${type.customer_type_id}">${type.customer_type_name}</option>
+                        <c:choose>
+                            <c:when test="${type.customer_type_id == customer.customer_type_id}">
+                                <option selected  value="${type.customer_type_id}">${type.customer_type_name}</option>
+                            </c:when>
+                            <c:otherwise>
+                                <option  value="${type.customer_type_id}">${type.customer_type_name}</option>
+                            </c:otherwise>
+                        </c:choose>
                     </c:forEach>
                 </select>
             </div>
