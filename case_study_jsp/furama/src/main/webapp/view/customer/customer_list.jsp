@@ -19,6 +19,9 @@
 </head>
 <body>
 <a href="/customers?action=create"><input type="button" value="Thêm mới"></a>
+<c:if test="${mess!=null}">
+    <span id="mess">${mess}</span>
+</c:if>
 <table id="tableCustomer" class="table table-striped table-bordered col" style="width: 100%">
     <thead>
     <tr>
@@ -31,8 +34,8 @@
         <th scope="col">Số điện thoại</th>
         <th scope="col">Email</th>
         <th scope="col">Địa chỉ</th>
-        <th></th>
-        <th></th>
+        <th>edit</th>
+        <th>delete</th>
 
     </tr>
     </thead>
@@ -41,13 +44,20 @@
         <tr>
             <td scope="row">${customer.customer_id}</td>
             <c:forEach items="${customerTypeList}" var="customerTypeList">
+
                 <c:if test="${customerTypeList.customer_type_id==customer.customer_type_id}">
                     <td>${customerTypeList.customer_type_name}</td>
                 </c:if>
             </c:forEach>
+
             <td>${customer.customer_name}</td>
             <td>${customer.customer_birthday}</td>
-            <td>${customer.customer_gender}</td>
+            <c:if test="${customer.customer_gender == 0}">
+                <td>Nam</td>
+            </c:if>
+            <c:if test="${customer.customer_gender == 1}">
+                <td>Nữ</td>
+            </c:if>
             <td>${customer.customer_id_card}</td>
             <td>${customer.customer_phone}</td>
             <td>${customer.customer_email}</td>

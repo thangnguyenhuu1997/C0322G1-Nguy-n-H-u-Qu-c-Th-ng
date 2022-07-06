@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/datatables/css/dataTables.bootstrap4.min.css"/>
 </head>
 <body>
-
+<a href="/employee?action=create"><input type="button" value="Thêm mới"></a>
 <table id="tableCustomer" class="table table-striped table-bordered col" style="width: 100%">
     <thead>
     <tr>

@@ -16,7 +16,8 @@
 <body>
 <div class="create-form">
     <div class="container w-50">
-        <form action="/customers?action=create" method="post">
+        <form action="/customers" method="post">
+            <input type="text" name="action" value="create" hidden>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Chọn loại khách</label>
                 <select class="form-control" name="customer_type_id" id="exampleFormControlSelect1">

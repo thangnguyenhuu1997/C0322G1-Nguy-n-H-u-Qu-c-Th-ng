@@ -53,4 +53,7 @@ public class CustomerService implements ICustomerService {
     public List<Customer> searchCustomer(String idSearch, String nameSearch) {
         return customerRepository.searchCustomer(idSearch,nameSearch);
     }
+    public void test(){
+        System.out.println("test");
+    }
 }

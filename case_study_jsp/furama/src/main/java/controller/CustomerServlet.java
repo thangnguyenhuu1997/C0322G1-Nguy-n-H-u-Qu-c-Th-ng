@@ -147,17 +147,26 @@ public class CustomerServlet extends HttpServlet {
     private void delete(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("idCustomerToDelete"));
         customerService.deleteCustomer(id);
-
+//        try {
+//            response.sendRedirect("/customers");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         List<Customer> customerList = customerService.selectAllCustomer();
         request.setAttribute("customerList", customerList);
+        // goi lai phuong
+        List<CustomerType> customerTypeList=customerTypeService.selectAll();
+        request.setAttribute("customerTypeList", customerTypeList);
+        request.setAttribute("mess", "Xóa thành công");
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/customer_list.jsp");
         try {
-            dispatcher.forward(request, response);
+            dispatcher.forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     private void search(HttpServletRequest request, HttpServletResponse response) {
@@ -195,7 +204,7 @@ public class CustomerServlet extends HttpServlet {
                 customer_email,
                 customer_address);
         customerService.updateCustomer(customer);
-        List<Customer> customerList = customerService.selectAllCustomer();
+//        List<Customer> customerList = customerService.selectAllCustomer();
 //        request.setAttribute("customerList", customerList);
 //        RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/customer_list.jsp");
         try {

@@ -94,7 +94,7 @@ public class EmployeeServlet extends HttpServlet {
         request.setAttribute("positionList", positionList);
         List<User> userList = userService.selectAllUser();
         request.setAttribute("userList", userList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/employee/create.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -132,8 +132,11 @@ public class EmployeeServlet extends HttpServlet {
                 username);
         try {
             employeeService.insertEmployee(employee);
+            response.sendRedirect("/employee");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
