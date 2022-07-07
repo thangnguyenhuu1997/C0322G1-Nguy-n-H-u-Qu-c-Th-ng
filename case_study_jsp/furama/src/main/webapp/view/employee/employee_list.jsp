@@ -141,7 +141,7 @@
                         <input type="text" name="employee_salary" class="form-control" value="${employee.employee_salary}"
                                id="exampleFormControlInput4"
                                placeholder="1000000" required>
-                        <p style="color: red">${error.get("employee_salary")}</p>
+<%--                        <p style="color: red">${error.get("employee_salary")}</p>--%>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput5">Số điện thoại</label>
