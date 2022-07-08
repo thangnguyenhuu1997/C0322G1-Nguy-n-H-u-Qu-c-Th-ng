@@ -22,7 +22,7 @@
                 <input type="text" name="employee_name" class="form-control" value="${employee.employee_name}"
                        id="exampleFormControlInput1"
                        placeholder="Nguyen Van A" required>
-                <p style="color: red">${error.get("employee_name")}</p>
+
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput2">Ngày sinh:</label>
@@ -34,28 +34,28 @@
                 <input type="text" name="employee_id_card" class="form-control" value="${employee.employee_id_card}"
                        id="exampleFormControlInput3"
                        placeholder="XXXXXXXX or XXXXXXXXXX" required>
-<%--                <p style="color: red">${error.get("employee_id_card")}</p>--%>
+
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput4">Lương:</label>
                 <input type="text" name="employee_salary" class="form-control" value="${employee.employee_salary}"
                        id="exampleFormControlInput4"
                        placeholder="1000000" required>
-<%--                <p style="color: red">${error.get("employee_salary")}</p>--%>
+
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput5">Số điện thoại</label>
                 <input type="text" name="employee_phone" class="form-control" value="${employee.employee_phone}"
                        id="exampleFormControlInput5"
                        placeholder="(84)90xxxxxxx or (84)91xxxxxxx" required>
-<%--                <p style="color: red">${error.get("employee_phone")}</p>--%>
+
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput6">Email:</label>
                 <input type="text" name="employee_email" class="form-control" value="${employee.employee_email}"
                        id="exampleFormControlInput6"
                        placeholder="abcxyz@gmail.com">
-<%--                <p style="color: #ff0000">${error.get("employee_email")}</p>--%>
+
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput7">Địa chỉ:</label>
