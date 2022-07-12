@@ -1,0 +1,21 @@
+#navbarSupportedContent{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.main-content img{
+    height: 500px;
+}
+.create-form{
+    background-image: url("https://i1.wp.com/kenhhomestay.com/wp-content/uploads/2019/10/Furama-Resort-da-nang-1.jpg");
+    height: 950px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+footer {
+    background-color: #0c5460;
+    color: white;
+}
